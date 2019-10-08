@@ -5,9 +5,9 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
-import pages.CustomerAccountPage;
-import pages.HomePage;
+import pages.*;
 
+import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.sleep;
 
 
@@ -46,8 +46,133 @@ public class Luma extends BaseTest {
                 .openSignIn()
                 .signInEmail()
                 .signInPassword()
-                .signInClick();
+                .signInClick()
+                .isSignInSuccess();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(enabled = true, description = "TS003 : Make an Order")
+    public void TS003_MakeOrder() throws InterruptedException {
+        HomePage homePage = new HomePage();
+        ProductPage productPage = new ProductPage();
+        CustomerAccountPage customerAccountPage = new CustomerAccountPage();
+        open();
+
+        customerAccountPage
+                .openSignIn()
+                .signInEmail()
+                .signInPassword()
+                .signInClick()
+                .isSignInSuccess();
+
+        homePage
+                .womenProducts()
+//                .selectProduct();
+                .minFirstProduct();
+        productPage
+                .price()
+                .minPrice()
+                .firstProduct()
+                .addToCompare()
+                .compareListMessage();
+
+        homePage
+                .womenProducts()
+                .secondProduct();
+        productPage
+                .price()
+                .middlePrice()
+                .firstProduct()
+                .addToCompare()
+                .compareListMessage()
+                .addToWishlist();
+
+        homePage
+                .womenProducts()
+                .thirdProduct();
+        productPage
+                .price()
+                .maxPrice()
+                .firstProduct()
+                .addToCompareforBottom()
+                .compareListMessageforBottom();
+
+    }
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(enabled = true, description = "TS004 : Add products to Card")
+    public void TS004_AddCart()  {
+        HomePage homePage = new HomePage();
+        ProductPage productPage = new ProductPage();
+        CustomerAccountPage customerAccountPage = new CustomerAccountPage();
+        ComparePage comparePage = new ComparePage();
+        CheckOutPage checkOutPage = new CheckOutPage();
+        open();
+
+        customerAccountPage
+                .openSignIn()
+                .signInEmail()
+                .signInPassword()
+                .signInClick()
+                .isSignInSuccess();
+
+    homePage
+            .gotoProfile();
+
+        comparePage
+                .firstProduct();
+
+        productPage
+                .selectSize()
+                .selectColor()
+                .addtoCard();
+
+        back();
+
+        comparePage
+                .secondProduct();
+
+        productPage
+                .selectSize()
+                .selectColor()
+                .addtoCard();
+
+        back();
+
+        comparePage
+                .thirdProduct();
+
+        productPage
+                .selectSizeforPants()
+                .selectColor()
+                .addtoCard();
+
+        checkOutPage
+                .bucket();
+    }
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(enabled = true, description = "TS005 : Payment Process")
+    public void TS005_PaymentProcess()  {
+        CustomerAccountPage customerAccountPage = new CustomerAccountPage();
+        CheckOutPage checkOutPage = new CheckOutPage();
+        open();
+
+        customerAccountPage
+                .openSignIn()
+                .signInEmail()
+                .signInPassword()
+                .signInClick()
+                .isSignInSuccess();
+
+        checkOutPage
+                .bucket()
+                .gotoCheckOut()
+                .shippingMethod()
+                .nextPaymentPage()
+                .checkAddress()
+                .newAddress()
+                .addnewAddress();
+    }
 }
 
