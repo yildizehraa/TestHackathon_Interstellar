@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.testng.*;
 import org.testng.annotations.*;
 
@@ -271,5 +272,12 @@ public class BaseTest extends BaseLibrary {
         return properties;
     }
 
+    @Step("Open Url")
+    public void open() {
+        Configuration.baseUrl = ("http://ec2-52-213-49-102.eu-west-1.compute.amazonaws.com/");
+        WebDriverRunner.clearBrowserCache();
+        Selenide.open("");
+        maximazeBrowser();
+    }
 
 }

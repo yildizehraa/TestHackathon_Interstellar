@@ -7,6 +7,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
@@ -152,6 +155,37 @@ public class BaseLibrary  {
 
         switchTo().frame(element);
 
+    }
+
+    public String createRandomNumber(int length) {
+        Random r = new Random();
+        List<Integer> digits = new ArrayList<>();
+        String number = "";
+
+        for (int i = 0; i < length - 1; i++) {
+            digits.add(i);
+        }
+
+        for (int i = length - 1; i > 0; i--) {
+            int randomDigit = r.nextInt(i);
+            number += digits.get(randomDigit);
+            digits.remove(randomDigit);
+        }
+
+        number = "1" + number;
+        return number;
+    }
+
+    public String createRandomText(int textSize) {
+        char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < textSize; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
+        }
+
+        return sb.toString();
     }
 
 }
