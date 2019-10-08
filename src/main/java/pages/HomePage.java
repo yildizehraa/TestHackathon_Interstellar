@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage extends BaseLibrary {
-//    SelenideElement BTN_FLIGHT_XPATH = $(By.xpath("//button[@id='tab-flight-tab-hp']"));
+    SelenideElement BTN_LUMA_XPATH = $(By.xpath("//button[@id='tab-flight-tab-hp']"));
 
 
     @Step("Open Url")
