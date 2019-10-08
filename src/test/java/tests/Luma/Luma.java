@@ -21,7 +21,7 @@ public class Luma extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Test(enabled = true, description = "TS0001 : Create an Account")
-    public void TS0001_CreateAccount(){
+    public void TS001_CreateAccount(){
         CustomerAccountPage customerAccountPage = new CustomerAccountPage();
 
         open();
@@ -34,6 +34,19 @@ public class Luma extends BaseTest {
                .confirmPassword();
 //               .submitAccount()
 //               .isCreateSuccess();
+    }
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(enabled = true, description = "TS002 : Sign - In")
+    public void TS002_SignIn(){
+        CustomerAccountPage customerAccountPage = new CustomerAccountPage();
+
+        open();
+        customerAccountPage
+                .openSignIn()
+                .signInEmail()
+                .signInPassword()
+                .signInClick();
     }
 
 }

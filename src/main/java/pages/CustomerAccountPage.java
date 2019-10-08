@@ -63,4 +63,35 @@ public class CustomerAccountPage extends BaseLibrary
         return this;
     }
 
+    @Step("Click on sign-in ")
+    public CustomerAccountPage openSignIn(){
+        testData.BTN_SIGNIN.click();
+        return this;
+    }
+
+    @Step("Fill e-mail")
+    public CustomerAccountPage signInEmail(){
+        testData.TXT_SIGNIN_EMAIL.sendKeys("merve.ulug@consultant.turkcell.com.tr");
+        return this;
+    }
+
+    @Step("Fill password")
+    public CustomerAccountPage signInPassword(){
+//        testData.TXT_SIGNIN_PASSWORD.sendKeys(password);
+                testData.TXT_SIGNIN_PASSWORD.sendKeys("123456789test.");
+        return this;
+    }
+
+    @Step("Click on sign-in button")
+    public CustomerAccountPage signInClick(){
+        testData.BTN_SIGNIN_SUBMIT.click();
+        return this;
+    }
+
+    @Step("Is sign-in success? ")
+    public CustomerAccountPage isSignInSuccess(){
+        Assert.assertEquals(testData.LBL_COMFIRMSIGNIN.isDisplayed(),true, "Sign-in is successful ! ");
+        takeScreenshot();
+        return this;
+    }
 }
