@@ -31,9 +31,9 @@ public class Luma extends BaseTest {
                .lastName()
                .eMail()
                .passWord()
-               .confirmPassword();
-//               .submitAccount()
-//               .isCreateSuccess();
+               .confirmPassword()
+               .submitAccount()
+               .isCreateSuccess();
     }
 
     @Severity(SeverityLevel.CRITICAL)
@@ -152,8 +152,8 @@ public class Luma extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
-    @Test(enabled = true, description = "TS005 : Payment Process")
-    public void TS005_PaymentProcess()  {
+    @Test(enabled = true, description = "TS006 : Payment Process")
+    public void TS006_PaymentProcess()  {
         CustomerAccountPage customerAccountPage = new CustomerAccountPage();
         CheckOutPage checkOutPage = new CheckOutPage();
         open();
@@ -172,7 +172,8 @@ public class Luma extends BaseTest {
                 .nextPaymentPage()
                 .checkAddress()
                 .newAddress()
-                .addnewAddress();
+                .addnewAddress()
+                .placeOrder();
     }
 }
 

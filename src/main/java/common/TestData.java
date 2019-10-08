@@ -71,12 +71,18 @@ public class TestData extends BaseLibrary
     public SelenideElement CMB_BOX_NEWADRESS = $(By.xpath("//select[@name='billing_address_id']//option[text()='New Address']"));
     public SelenideElement TXT_COMPANY = $(By.xpath("(//fieldset[@data-form='billing-new-address']//div[3]//div[@class='control'])[1]"));
 
-    public SelenideElement TXT_CITY = $(By.xpath("(//fieldset[@data-form='billing-new-address']//div[4]//div[@class='control'])[1]"));
+    public SelenideElement TXT_CITY = $(By.xpath("(//div[@class='field _required']//div[@class='control']//input[@name='city'])[2]"));
     public SelenideElement TXT_STATE = $(By.xpath("(//div[@class='field _required']//div[@class='control']//select[@name='region_id'])[2]"));
+    public SelenideElement TXT_CHOISE = $(By.xpath("((//div[@class='field _required']//div[@class='control']//option[@data-title='Alabama']))[2]"));
+
     public SelenideElement TXT_STREETADRESS = $(By.xpath("(//div[@class='field _required']//div[@class='control']//input[@name='street[0]'])[2]"));
     public SelenideElement TXT_POSTALCODE = $(By.xpath("(//div[@class='field _required']//div[@class='control']//input[@name='postcode'])[2]"));
     public SelenideElement TXT_CONTRY = $(By.xpath("//div[@class='field _required']//div[@class='control']//select[@id='L04FK99']"));
-    public SelenideElement TXT_TELEPHONE = $(By.xpath("(//div[@class='field _required']//div[@class='control _with-tooltip']//input[@name='telephone'])[2]\n"));
+    public SelenideElement TXT_TELEPHONE = $(By.xpath("(//div[@class='field _required']//div[@class='control _with-tooltip']//input[@name='telephone'])[2]"));
     public SelenideElement BTN_UPDATE = $(By.xpath("//button[@class='action action-update']"));
+    public SelenideElement BTN_PLACEORDER = $(By.xpath("//div[@class='payment-method _active']//div[@class='primary']//button[@title='Place Order']"));
+
+
+
 
 }

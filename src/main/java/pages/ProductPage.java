@@ -91,6 +91,7 @@ public class ProductPage extends BaseLibrary {
         if(message.equalsIgnoreCase("You added product Ariel Roll Sleeve Sweatshirt to the comparison list."))
             Assert.assertEquals(testData.TXT_ADDTOCOMPAREMESSAGE.isDisplayed(),true, "Add to comparision successful! ");
         takeScreenshot();
+        takeScreenshot();
         return this;
     }
 

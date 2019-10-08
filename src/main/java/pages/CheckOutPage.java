@@ -15,6 +15,7 @@ public class CheckOutPage extends BaseLibrary {
     public CheckOutPage bucket()  {
         testData.BTN_BUCKET.waitUntil(Condition.visible,5000);
        testData.BTN_BUCKET.click();
+       takeScreenshot();
         return this;
     }
 
@@ -56,18 +57,25 @@ public class CheckOutPage extends BaseLibrary {
 
     @Step("Add New Address")
     public CheckOutPage  addnewAddress()  {
-//        testData.TXT_COMPANY.sendKeys("ınterstellar");
         testData.TXT_STREETADRESS.sendKeys("ınterstellar");
         testData.TXT_CITY.sendKeys("test");
-        testData.TXT_STATE.click(); ///enson
-        testData.TXT_POSTALCODE.sendKeys("test");
-        testData.TXT_TELEPHONE.sendKeys("test");
+        testData.TXT_STATE.selectOption("Alabama");
+//        testData.TXT_STATE.click();
+//        testData.TXT_CHOISE.click();
+//        testData.TXT_CHOISE.selectOption("Alabama");
+        testData.TXT_POSTALCODE.sendKeys("12345-6789");
+        testData.TXT_TELEPHONE.sendKeys("2165555555");
         testData.BTN_UPDATE.click();
-
-
-
         return this;
     }
+
+    @Step("Place Order")
+    public CheckOutPage  placeOrder()  {
+        testData.BTN_PLACEORDER.click();
+        takeScreenshot();
+        return this;
+    }
+
 
 
 
