@@ -14,7 +14,7 @@ public class ProductPage extends BaseLibrary {
 
     @Step("Select price")
     public ProductPage price() throws InterruptedException {
-        testData.BTN_MINPRICE.waitUntil(Condition.disappear,5000);
+        testData.BTN_MINPRICE.waitUntil(Condition.disappear,10000);
         if(!(testData.BTN_MINPRICE.isDisplayed()))
             testData.BTN_PRICE.click();
         return this;
